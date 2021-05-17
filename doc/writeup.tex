@@ -93,25 +93,25 @@ The SAT solver uses the classical Davis–Putnam–Logemann–Loveland (DPLL) al
 An overview of the project files, and how to run them is given in this section to whet the appetites of the reader.
 
 \begin{itemize}
-  \item \texttt{sat.py} This is the entry point of the project, and this is also where the DPLL algorithm is implemented  in the \texttt{SATSolver} class
-  \item \texttt{loader.py} This contains the \textsf{Loader} class that loaders a \texttt{.cnf} file into our proprietary CNF format
-  \item \texttt{lib.py} This contains the definitions for the classes representing various SAT objects. In particular, we have the following:
+  \item \texttt{src/sat.py} This is the entry point of the project, and this is also where the DPLL algorithm is implemented  in the \texttt{SATSolver} class
+  \item \texttt{src/loader.py} This contains the \textsf{Loader} class that loaders a \texttt{.cnf} file into our proprietary CNF format
+  \item \texttt{src/lib.py} This contains the definitions for the classes representing various SAT objects. In particular, we have the following:
     \begin{itemize}
       \item \texttt{Variable}: This represents a base variable, i.e $x_1$.
       \item \texttt{Var}: This represents a variable in one of two states: either negated (i.e $\neg x_1)$, or not negated (i.e $x_1$). A \texttt{Var} is associated with a base \texttt{Variable}. We will use the term var in our discussion to make it clear that we are talking about vars that has the potential to be negated, instead of the base variable.
       \item \texttt{Clause}: This represents a CNF clause. We require at least two vars in each clause due to our implementation of watchlists watching 2 vars. This is an acceptable assumption since if not, we can simply duplicate the same vars that already appear. Duplicated vars are allowed. Example: $(x_1 \vee x_2 \vee \neg x_3)$
       \item \texttt{SAT}: This contains a list of CNF clauses, which represents our SAT instance. Example: $(x_1 \vee x_2 \vee \neg x_3) \wedge (\neg x_1 \vee x_2 \vee x_3)$
     \end{itemize}
-  \item \texttt{assignment.py} This contains the \texttt{Assignment} class, that manages all the current variable assignment information, and also has methods related to assignments, like unit propagation and backtracking.
+  \item \texttt{src/assignment.py} This contains the \texttt{Assignment} class, that manages all the current variable assignment information, and also has methods related to assignments, like unit propagation and backtracking.
   \item \texttt{small/} This is a directory that contains small hand-crafted test cases that can be easily traced and verified.
   \item \texttt{Makefile} A Makefile to set up the \texttt{/dat} directory, and to run the SAT solver on each of them automatically.
 \end{itemize}
 
 \subsection{Running the SAT Solver}
 
-To run the SAT solver, run \texttt{sat.py <filename>}. It also takes in verbosity flags, \texttt{-v} and \texttt{-vv} depending on the level desired. By default, only the test case being run and the result is given as output. \texttt{-v} prints the initial SAT formula, the current decisions being made and whenever backtracking is performed. It also outputs the final satisfying assignment. For instance, try running \texttt{./sat.py -v dat/sat/uf50-0100.cnf} to see the assignments for one of the test cases. \texttt{-vv} outputs almost all information about what the algorithm is currently doing.
+To run the SAT solver, run \texttt{./src/sat.py <filename>}. It also takes in verbosity flags, \texttt{-v} and \texttt{-vv} depending on the level desired. By default, only the test case being run and the result is given as output. \texttt{-v} prints the initial SAT formula, the current decisions being made and whenever backtracking is performed. It also outputs the final satisfying assignment. For instance, try running \texttt{./src/sat.py -v dat/sat/uf50-0100.cnf} to see the assignments for one of the test cases. \texttt{-vv} outputs almost all information about what the algorithm is currently doing.
 
-As an example, try running \texttt{sat.py small/small-sat1.cnf}, which corresponds to the CNF $(x_1 \vee x_2 \vee x_3) \wedge (\neg x_1 \vee \neg x_2 \vee \neg x_3)$, which should output \texttt{SATISFIABLE}. For an unsatisfiable instance, try running \texttt{sat.py small/small-unsat2.cnf}, which is an unsatisfiable instance corresponding to the following SAT instance:
+As an example, try running \texttt{./src/sat.py small/small-sat1.cnf}, which corresponds to the CNF $(x_1 \vee x_2 \vee x_3) \wedge (\neg x_1 \vee \neg x_2 \vee \neg x_3)$, which should output \texttt{SATISFIABLE}. For an unsatisfiable instance, try running \texttt{./src/sat.py small/small-unsat2.cnf}, which is an unsatisfiable instance corresponding to the following SAT instance:
 \begin{align*}
 & (\neg x_1,  x_2,  x_4) \wedge
 (\neg x_2,  x_3,  x_4) \wedge
@@ -129,7 +129,7 @@ This should output \texttt{UNSATISFIABLE}.
 
 The \texttt{dat} directory should already be setup in the submission directory, but in the event of issues, running \texttt{make clean} and \texttt{make setup} should restore the testcases directory (if you run into issues, please let me know - but try to avoid restoring it if there are no issues, in the event of uptime issues with the testcase source). The testcases are taken from SATLIB (\url{https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html}), and are split into two folders - \texttt{dat/sat} and \texttt{dat/unsat}, for satisfiable and unsatisfiable instances respectively. Each directory contains 1000 SAT instances, each of which contains 50 variable and 218 clauses. SATLIB claims that these instances are generated uniform at random.
 
-To run the SAT solver on all the instances that should be satisfiable, run \texttt{make sat}. This will take a while (~10 minutes). To run unsatisfiable instances, run \texttt{make unsat}. This will take even longer. This should also give a lot of confidence to the correctness of the SAT solver's implementation, as it gives the correct answers for both test suites containing 1000 test instances.
+To run the SAT solver on all the instances that should be satisfiable, run \texttt{make sat}. This will take a while (around 10 minutes). To run unsatisfiable instances, run \texttt{make unsat}. This will take even longer. This should also give a lot of confidence to the correctness of the SAT solver's implementation, as it gives the correct answers for both test suites containing 1000 test instances.
 
 \section{Algorithm}
 
@@ -263,10 +263,7 @@ One possibility is to implement conflict-driven clause learning (CDCL)introduced
 
 Another direction is to improve our heuristics for choosing variables and their values. MOMS (Maximum Occurence in clauses of Minimum Size) is a heuristic where we prioritize assigning variables that occurs the highest number of times in short clauses. Bohm's heuristic chooses the variable that appears the most in unsatisfied clauses. The VSIDS (Variable State Independent Decaying Sum) heuristic assigns each variable a weight, which is decayed at each time step. The weight of a variable is increased whenever it is involved in a conflicting clause. The heuristic then selects the variable with the highest score.
 
-Other directions include using conflict-directed backjumping \cite{backtrace}, which allows the solver to go more than one level up the decision level given certain conditions. Backjumping is a general technique used to speed up backtracking algorithms. 
-
-
-
+Other directions include using conflict-directed backjumping \cite{backtrack}, which allows the solver to go more than one level up the decision level given certain conditions. Backjumping is a general technique used to speed up backtracking algorithms. 
 
 \newpage
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.30)  17 MAY 2021 18:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.30)  17 MAY 2021 19:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -529,28 +529,15 @@ File: res.png Graphic file (type png)
 <use res.png>
 Package pdftex.def Info: res.png  used on input line 242.
 (pdftex.def)             Requested size: 341.43306pt x 207.30994pt.
- [5 <./res.png (PNG copy)>]
-
-LaTeX Warning: Citation `backtrace' on page 6 undefined on input line 266.
-
-[6] (./writeup.bbl) [7] (./writeup.aux)
-
-Package rerunfilecheck Warning: File `writeup.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `writeup.out':
-(rerunfilecheck)             Before: 6B0EE1C7953CBCB995A7789056243A59;596
-(rerunfilecheck)             After:  CF2DBEFD9FDB0D7590CB60A30C13F0C8;618.
-
-LaTeX Warning: There were undefined references.
-
+ [5 <./res.png (PNG copy)>] [6] (./writeup.bbl) [7] (./writeup.aux)
+Package rerunfilecheck Info: File `writeup.out' has not changed.
+(rerunfilecheck)             Checksum: CF2DBEFD9FDB0D7590CB60A30C13F0C8;618.
  ) 
 Here is how much of TeX's memory you used:
- 11139 strings out of 479383
- 169200 string characters out of 5875830
- 494494 words of memory out of 5000000
- 28049 multiletter control sequences out of 15000+600000
+ 11141 strings out of 479383
+ 169225 string characters out of 5875830
+ 494525 words of memory out of 5000000
+ 28050 multiletter control sequences out of 15000+600000
  410756 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,22n,72p,900b,528s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -564,10 +551,10 @@ t/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
 b></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on writeup.pdf (7 pages, 177131 bytes).
+Output written on writeup.pdf (7 pages, 177226 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 138 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
+ 163 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
  94 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -3,48 +3,47 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: writeup.aux
 The style file: unsrt.bst
 Database file #1: references.bib
-Warning--I didn't find a database entry for "backtrace"
 Warning--empty year in chaff
 Warning--empty author and editor in handbook_sat
-You've used 6 entries,
+You've used 7 entries,
             1791 wiz_defined-function locations,
-            475 strings with 4258 characters,
-and the built_in function-call counts, 905 in all, are:
-= -- 61
-> -- 48
+            481 strings with 4440 characters,
+and the built_in function-call counts, 1150 in all, are:
+= -- 83
+> -- 56
 < -- 0
-+ -- 19
-- -- 13
-* -- 43
-:= -- 150
-add.period$ -- 15
-call.type$ -- 6
-change.case$ -- 4
++ -- 22
+- -- 15
+* -- 63
+:= -- 188
+add.period$ -- 18
+call.type$ -- 7
+change.case$ -- 5
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 47
-empty$ -- 103
-format.name$ -- 13
-if$ -- 199
+cite$ -- 9
+duplicate$ -- 56
+empty$ -- 129
+format.name$ -- 15
+if$ -- 253
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 5
-newline$ -- 30
-num.names$ -- 5
-pop$ -- 33
+int.to.str$ -- 7
+missing$ -- 6
+newline$ -- 35
+num.names$ -- 6
+pop$ -- 34
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 22
+skip$ -- 26
 stack$ -- 0
-substring$ -- 0
-swap$ -- 6
+substring$ -- 27
+swap$ -- 7
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 5
-width$ -- 7
-write$ -- 54
-(There were 3 warnings)
+while$ -- 7
+width$ -- 8
+write$ -- 65
+(There were 2 warnings)

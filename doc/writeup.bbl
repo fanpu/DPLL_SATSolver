@@ -29,4 +29,10 @@ Carla Gomes, Bart Selman, and Henry Kautz.
 \newblock {\em Proceedings of the National Conference on Artificial
   Intelligence}, 03 2003.
 
+\bibitem{backtrack}
+Richard~M. Stallman and Gerald~J. Sussman.
+\newblock Forward reasoning and dependency-directed backtracking in a system
+  for computer-aided circuit analysis.
+\newblock {\em Artificial Intelligence}, 9(2):135–196, 1977.
+
 \end{thebibliography}
