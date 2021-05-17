@@ -19,16 +19,18 @@ def choose_splitting_var(assignments, sat):
 
     return: the variable to split on, this should not be assigned
     '''
-    # Uncomment below to use default policy that simply uses the
+    # Comment below to not use default policy that simply uses the
     # first unassigned variable
-    # raise NotImplementedError
+    raise NotImplementedError
 
-    candidates = []
-    for var_, assn in assignments.items():
-        if assn == Assn.UNKNOWN:
-            candidates.append(var_)
-
-    return candidates[random.randrange(len(candidates))]
+    # ===================================================
+    # Random strategy: uncomment to use
+    # candidates = []
+    # for var_, assn in assignments.items():
+    #     if assn == Assn.UNKNOWN:
+    #         candidates.append(var_)
+    # return candidates[random.randrange(len(candidates))]
+    # ===================================================
 
 def choose_assn(var_, assignments, sat):
     '''
@@ -43,8 +45,29 @@ def choose_assn(var_, assignments, sat):
 
     return: either Assn.TRUE or Assn.FALSE
     '''
-    # Uncomment below to use default policy that simply uses True
+    # Comment below to not use default policy that simply uses True
     # first followed by False
     # raise NotImplementedError
 
-    return Assn.TRUE if random.randint(0, 1) == 1 else Assn.FALSE
+    # ===================================================
+    # Random strategy: uncomment to use
+    # return Assn.TRUE if random.randint(0, 1) == 1 else Assn.FALSE
+    # ===================================================
+
+
+    # ===================================================
+    # Using the value that satisfies most of the clauses that it appears in 
+    # Uncomment to use
+    pos_instance = 0
+    neg_instance = 0
+    for clause in sat.clauses:
+        for v in clause.vars:
+            if v.var == var_:
+                if v.isNeg():
+                    neg_instance += 1
+                else:
+                    pos_instance += 1
+    return Assn.TRUE if pos_instance >= neg_instance else Assn.FALSE
+    # ===================================================
+
+    

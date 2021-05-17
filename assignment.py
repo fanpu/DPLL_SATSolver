@@ -145,6 +145,7 @@ class Assignment():
                 if clause.is_watching_true(self):
                     logging.debug("Clause already satisfied")
                     continue
+
                 # If not, we need to make the clause watch something else that is not False
                 if clause.resolve_watch(var_, self) < 0:
                     logging.debug(

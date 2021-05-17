@@ -2,7 +2,31 @@
 
 \bibitem{handbook}
 Frank~Van Harmelen, Vladimir Lifschitz, and Bruce Porter.
-\newblock {\em Handbook of knowledge representation}.
+\newblock {\em {Handbook of knowledge representation}}.
 \newblock Elsevier, 2010.
+
+\bibitem{katz}
+Jediah Katz.
+\newblock {Algorithms for SAT}.
+
+\bibitem{swords}
+Swords.
+\newblock {Basics of SAT Solving Algorithms}, Dec 2008.
+
+\bibitem{chaff}
+M.w. Moskewicz, C.f. Madigan, Y.~Zhao, L.~Zhang, and S.~Malik.
+\newblock Chaff: engineering an efficient sat solver.
+\newblock {\em Proceedings of the 38th Design Automation Conference (IEEE Cat.
+  No.01CH37232)}.
+
+\bibitem{handbook_sat}
+{\em Handbook of satisfiability}.
+\newblock IOS Press, 2009.
+
+\bibitem{restarts}
+Carla Gomes, Bart Selman, and Henry Kautz.
+\newblock Boosting combinatorial search through randomization.
+\newblock {\em Proceedings of the National Conference on Artificial
+  Intelligence}, 03 2003.
 
 \end{thebibliography}
