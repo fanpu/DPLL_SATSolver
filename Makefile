@@ -1,22 +1,27 @@
 .PHONY: setup
 setup: 
 	@echo "Fetching test files"
-	mkdir -p testcases/sat
-	mkdir -p testcases/unsat
-	wget https://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/RND3SAT/uf50-218.tar.gz -P testcases/sat/
-	wget https://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/RND3SAT/uuf50-218.tar.gz -P testcases/unsat/
-	cd testcases/sat && tar xf uf50-218.tar.gz && cd ../unsat && tar xf uuf50-218.tar.gz
+	mkdir -p dat/sat
+	mkdir -p dat/unsat
+	wget https://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/RND3SAT/uf50-218.tar.gz -P dat/sat/
+	wget https://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/RND3SAT/uuf50-218.tar.gz -P dat/unsat/
+	cd dat/sat && tar xf uf50-218.tar.gz && cd ../unsat && tar xf uuf50-218.tar.gz && cd ../..
+	rm dat/sat/uf50-218.tar.gz
+	mv dat/unsat/UUF50.218.1000/* dat/unsat
+	rmdir dat/unsat/UUF50.218.1000
+	rm dat/unsat/uuf50-218.tar.gz
+
 
 .PHONY: sat
 sat:
 	@echo "Testing satisfiable CNFs"
-	ls testcases/sat | xargs printf -- 'testcases/sat/%s\n' | xargs -L 1 ./sat.py
+	ls dat/sat | xargs printf -- 'dat/sat/%s\n' | xargs -L 1 ./src/sat.py
 
 .PHONY: unsat
 unsat:
 	@echo "Testing unsatisfiable CNFs"
-	ls testcases/unsat | xargs printf -- 'testcases/unsat/%s\n' | xargs -L 1 ./sat.py
+	ls dat/unsat | xargs printf -- 'dat/unsat/%s\n' | xargs -L 1 ./src/sat.py
 
 .PHONY: clean
 clean:
-	rm -rf ./testcases
+	rm -rf ./dat
