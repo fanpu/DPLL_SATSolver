@@ -47,7 +47,7 @@ def choose_assn(var_, assignments, sat):
     '''
     # Comment below to not use default policy that simply uses True
     # first followed by False
-    # raise NotImplementedError
+    raise NotImplementedError
 
     # ===================================================
     # Random strategy: uncomment to use
@@ -58,16 +58,16 @@ def choose_assn(var_, assignments, sat):
     # ===================================================
     # Using the value that satisfies most of the clauses that it appears in 
     # Uncomment to use
-    pos_instance = 0
-    neg_instance = 0
-    for clause in sat.clauses:
-        for v in clause.vars:
-            if v.var == var_:
-                if v.isNeg():
-                    neg_instance += 1
-                else:
-                    pos_instance += 1
-    return Assn.TRUE if pos_instance >= neg_instance else Assn.FALSE
+    # pos_instance = 0
+    # neg_instance = 0
+    # for clause in sat.clauses:
+    #     for v in clause.vars:
+    #         if v.var == var_:
+    #             if v.isNeg():
+    #                 neg_instance += 1
+    #             else:
+    #                 pos_instance += 1
+    # return Assn.TRUE if pos_instance >= neg_instance else Assn.FALSE
     # ===================================================
 
     
