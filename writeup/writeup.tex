@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+% \usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{listings} %For code in appendix
+\lstset{
+  basicstyle=\ttfamily,
+  mathescape
+}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{amstext} % for \text macro
+\usepackage{array}   % for \newcolumntype macro
+\newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+\oddsidemargin0cm
+\topmargin-2cm     %I recommend adding these three lines to increase the
+\textwidth16.5cm   %amount of usable space on the page (and save trees)
+\textheight24.5cm
+
+\newcommand{\question}[2] {\vspace{.25in} \hrule\vspace{0.5em}
+\noindent{\bf #1: #2} \vspace{0.5em}
+\hrule \vspace{.10in}}
+\renewcommand{\part}[1] {\vspace{.10in} {\bf (#1)}}
+
+\newcommand{\myname}{Fan Pu Zeng}
+\newcommand{\myandrew}{fzeng@andrew.cmu.edu}
+\newcommand{\myhwnum}{4}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+
+\pagestyle{fancyplain}
+\lhead{\fancyplain{}{\textbf{HW\myhwnum}}}      % Note the different brackets!
+\rhead{\fancyplain{}{\myname\\ \myandrew}}
+\chead{\fancyplain{}{15-354}}
+
+\begin{document}
+
+\medskip                        % Skip a "medium" amount of space
+                                % (latex determines what medium is)
+                                % Also try: \bigskip, \littleskip
+
+\thispagestyle{plain}
+\begin{center}                  % Center the following lines
+{\Large 15-354 Final Project: SAT Solver} \\
+\myname \\
+\myandrew \\
+\end{center}
+
+Boolean satisfiability (SAT) solvers have played an important role in software and hardware verification, automatic test pattern generation, planning, scheduling, and solving challenging problems in algebra \cite{handbook}. This report will introduce my SAT solver, its implementation details, designs and algorithms used, some comparisons between using different heuristics for splitting and choosing of variable assignments in the unforced case, challenges faced, and future directions.
+
+\section{SAT Solver Overview}
+The SAT solver uses the classical Davis–Putnam–Logemann–Loveland (DPLL) algorithm, which is based off backtracking search. In order to speed up the search process, unit propagation (also known as boolean constraint propagation), and the usage of watchlists for ease of backtracking is also implemented. Both of these will be discussed in detail later.
+
+\section{Project Files Overview}
+An overview of the project files, and how to run them is given in this section to whet the appetites of the reader.
+
+\begin{itemize}
+  \item \texttt{sat.py} This is the entry point of the project, and this is also where the DPLL algorithm is implemented  in the \textsf{SATSolver} class
+  \item \texttt{loader.py} This contains the \textsf{Loader} class that loaders a \texttt{.cnf} file into our proprietary CNF format
+  \item \texttt{lib.py} This contains the definitions for the classes representing various SAT objects. Most notably, we have:
+\end{itemize}
+
+
+
+SAT solvers 
+This report will talk about the design and algorithm, challenges faced, observations and takeaways, and future improvements on my implementation of a SAT solver. 
+
+% Implement a simple SAT solver along the lines of the classical Davis/Putnam algorithm. The point
+% here is not blinding speed but easy traceability. For example, it should be easy to demonstrate the
+% effect of various heuristics in the splitting case.
+
+\section{Overall Design}
+
+\newpage
+
+%Sets the bibliography style to UNSRT and imports the 
+%bibliography file "samples.bib".
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
