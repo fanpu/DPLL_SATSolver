@@ -1,6 +1,4 @@
-CDM Final Project: SAT Solver
-Fan Pu Zeng (fzeng)
-
+# DPLL Sat Solver
 - Makefile contains commands to setup dat/ and also to run the sat/unsat test cases. Refer to the writeup for information on how to use it.
 - doc/ contains the LaTeX source for the writeup
 - writeup.pdf in the doc/ directory contains the writeup. The writeup is formatted nicely and contains all the information about the project. Please read it first!
